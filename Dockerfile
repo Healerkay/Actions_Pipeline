@@ -1,2 +1,2 @@
-FROM node
+FROM nginx
 COPY . /app
