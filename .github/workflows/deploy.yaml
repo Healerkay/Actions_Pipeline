@@ -10,11 +10,24 @@ jobs:
         steps:
             - name: "Greeting step"
               run: echo "This is my first Workflow"
+
+            - name: confirm the repository of Docker Hub
+              uses: actions/checkout@v4
+
             - name: Logging into Docker Hub
               uses: docker/login-action@v3
               with:
                 username: ${{ secrets.DOCKERHUB_USERNAME }}
-                password: ${{ secrets.DOCKERHUB_PASSWORD }}  
+                password: ${{ secrets.DOCKERHUB_PASSWORD }}
+                
+            - name: "Build the image for the App"
+              env:
+                  IMAGE_NAME: kingy
+                  VERSION: newest
+                  USERNAME: healer
+              run: |
+                    docker build -t $USERNAME/$IMAGE_NAME:$VERSION .
+                    docker push $USERNAME/$IMAGE_NAME:$VERSION
 
 
                 
