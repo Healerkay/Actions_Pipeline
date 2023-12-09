@@ -24,7 +24,7 @@ jobs:
               env:
                   IMAGE_NAME: kingy
                   VERSION: newest
-                  USERNAME: healer
+                  USERNAME: healerkay
               run: |
                     docker build -t $USERNAME/$IMAGE_NAME:$VERSION .
                     docker push $USERNAME/$IMAGE_NAME:$VERSION
