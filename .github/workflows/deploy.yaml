@@ -1,0 +1,12 @@
+name: Deployment Workflow
+on:
+    push:
+      branches:
+        - master
+
+jobs:
+    pusher:
+        runs-on: ubuntu-latest
+        steps:
+            - name: "Greeting step"
+              run: echo "This is my first Workflow"
