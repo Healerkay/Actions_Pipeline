@@ -1,0 +1,19 @@
+name: "Continous create Deploy"
+on: 
+    workflow_run: 
+        workflows: ["Deployment Workflow"]
+        types:
+        - completed
+jobs:
+    fetch_and_start_the_app:
+        runs-on: self-hosted
+        steps:
+            - name: "Remove container logis"
+              run: "sudo docker rm -f logis || true"
+              
+            - name: "Get the code from Docker Hub"
+              run: "Sudo docker pull healerkay/kingy:newest"
+            
+            - name: "Run the image as a container"
+              run: "Sudo docker run -d -p 8080 --name logis healerkay/logis1"
+    
