@@ -15,5 +15,5 @@ jobs:
               run: "Sudo docker pull healerkay/kingy:newest"
             
             - name: "Run the image as a container"
-              run: "Sudo docker run -d -p 8080 --name logis healerkay/logis1"
+              run: "Sudo docker run -d -p 8080 --name logis healerkay/kingy:newest"
     
